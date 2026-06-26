@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>רונן משלם 💸</title>
+  <meta name="description" content="אפליקציית הזמנות מצחיקה שבה רונן משלם על הכול." />
+  <link rel="icon" href="logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Heebo', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff6a3d 0%, #ffd24c 100%);
+      min-height: 100vh;
+      color: #1a1a1a;
+      padding-bottom: 100px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* ===== Header ===== */
+    .top-bar {
+      background: #111;
+      color: #fff;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,.18);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      object-fit: cover;
+      background: #fff;
+      border: 2px solid rgba(255,255,255,0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1;
+      color: #ffd24c;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: #fff3be;
+      margin-top: 4px;
+      font-weight: 500;
+      letter-spacing: .2px;
+    }
+
+    .cart-btn {
+      background: #ffd24c;
+      color: #1a1a1a;
+      border: none;
+      padding: 9px 14px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform .15s ease;
+      flex-shrink: 0;
+    }
+
+    .cart-btn:hover {
+      transform: scale(1.04);
+    }
+
+    .cart-badge {
+      background: #ff5e3a;
+      color: #fff;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ===== Hero ===== */
+    .hero-wrap {
+      padding: 16px;
+    }
+
+    .hero-card {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,.15);
+      border: 2px solid rgba(255,255,255,.45);
+    }
+
+    .hero-banner {
+      width: 100%;
+      height: auto;
+      background: linear-gradient(135deg, #ff7a3d 0%, #ffd24c 60%, #00d6a3 100%);
+      object-fit: cover;
+    }
+
+    .hero-fallback {
+      display: none;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #ff7a3d 0%, #ffd24c 60%, #00d6a3 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .hero-fallback h1 {
+      font-size: 34px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 8px rgba(0,0,0,.2);
+    }
+
+    .hero-fallback p {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .hero-content {
+      padding: 18px;
+    }
+
+    .promo-pill {
+      display: inline-block;
+      background: #111;
+      color: #ffd24c;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .hero-note {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #444;
+      font-weight: 500;
+    }
+
+    /* ===== Address ===== */
+    .address {
+      background: #fff;
+      margin: 0 16px 0 16px;
+      border-radius: 18px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    }
+
+    .address-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .address-text {
+      flex: 1;
+    }
+
+    .address-sub {
+      font-size: 12px;
+      color: #888;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    /* ===== Banner strip ===== */
+    .banner-strip {
+      background: linear-gradient(135deg, #00d6a3 0%, #00b894 100%);
+      color: #fff;
+      padding: 14px 18px;
+      font-weight: 800;
+      text-align: center;
+      font-size: 15px;
+      margin: 16px;
+      border-radius: 16px;
+      box-shadow: 0 8px 18px rgba(0,0,0,.10);
+    }
+
+    /* ===== Categories ===== */
+    .cats {
+      display: flex;
+      gap: 10px;
+      padding: 0 16px 6px 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .cats::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat {
+      background: rgba(255,255,255,.92);
+      border-radius: 30px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+      border: 2px solid transparent;
+      transition: all .15s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,.05);
+    }
+
+    .cat:hover {
+      background: #fff4d0;
+    }
+
+    .cat.active {
+      background: #111;
+      color: #ffd24c;
+      border-color: #111;
+    }
+
+    /* ===== Restaurant card ===== */
+    .resto {
+      background: #fff;
+      margin: 12px 16px 18px 16px;
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.10);
+      border: 2px solid #ffd24c;
+    }
+
+    .resto-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 2px dashed #ffd24c;
+    }
+
+    .resto-emoji {
+      font-size: 38px;
+      background: #fff5dd;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .resto-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .resto-name {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    .resto-meta {
+      font-size: 12px;
+      color: #888;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 5px;
+    }
+
+    .rating {
+      background: #00d6a3;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 900;
+      margin: 14px 0 10px;
+      color: #1a1a1a;
+    }
+
+    /* ===== Menu items ===== */
+    .item {
+      display: flex;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      gap: 12px;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+    }
+
+    .item-emoji {
+      font-size: 42px;
+      width: 72px;
+      height: 72px;
+      background: #fff5dd;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .item-name {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+
+    .item-desc {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .item-price {
+      font-size: 14px;
+      font-weight: 800;
+      color: #ff5e3a;
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #111;
+      color: #fff;
+      border-radius: 30px;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+
+    .qty button {
+      background: transparent;
+      color: #ffd24c;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-weight: 900;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .qty button:hover {
+      background: #ffd24c;
+      color: #111;
+    }
+
+    .qty-num {
+      min-width: 22px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    /* ===== Floating cart ===== */
+    .floater {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      max-width: 948px;
+      margin: 0 auto;
+      background: #00d6a3;
+      color: #fff;
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 15px;
+      z-index: 40;
+      transition: transform .2s ease;
+    }
+
+    .floater:hover {
+      transform: translateY(-2px);
+    }
+
+    .floater.disabled {
+      background: #bfbfbf;
+      cursor: not-allowed;
+    }
+
+    .floater-pay {
+      font-size: 12px;
+      background: #111;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-right: 8px;
+      white-space: nowrap;
+    }
+
+    /* ===== Modal ===== */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.62);
+      display: none;
+      align-items: flex-end;
+      z-index: 100;
+    }
+
+    .modal-bg.show {
+      display: flex;
+    }
+
+    .modal {
+      background: #fff;
+      width: 100%;
+      max-height: 86vh;
+      border-radius: 22px 22px 0 0;
+      padding: 18px;
+      overflow-y: auto;
+      animation: slideUp .3s ease;
+      position: relative;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .modal-title {
+      font-size: 22px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .modal-sub {
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 16px;
+    }
+
+    .cart-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cart-emoji {
+      font-size: 30px;
+    }
+
+    .cart-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cart-name {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .cart-price {
+      color: #888;
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .summary {
+      background: #fff5dd;
+      padding: 14px;
+      border-radius: 14px;
+      margin: 16px 0;
+    }
+
+    .sum-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 4px 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .sum-row.total {
+      border-top: 2px dashed #ffd24c;
+      margin-top: 8px;
+      padding-top: 10px;
+      font-size: 20px;
+      font-weight: 900;
+      color: #ff5e3a;
+    }
+
+    .payer {
+      background: #111;
+      color: #ffd24c;
+      padding: 14px;
+      border-radius: 14px;
+      text-align: center;
+      font-weight: 900;
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+
+    .payer-coin {
+      font-size: 26px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #ff5e3a 0%, #ffd24c 100%);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 18px;
+      font-weight: 900;
+      cursor: pointer;
+      text-shadow: 1px 1px 0 rgba(0,0,0,.2);
+      transition: transform .15s ease;
+    }
+
+    .checkout-btn:hover {
+      transform: scale(1.02);
+    }
+
+    /* ===== Success modal ===== */
+    .success-emoji {
+      font-size: 90px;
+      text-align: center;
+      margin: 20px 0 10px;
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-12px); }
+    }
+
+    .success-text {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 900;
+      color: #ff5e3a;
+      margin-bottom: 6px;
+    }
+
+    .success-sub {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .funny-note {
+      background: #fff5dd;
+      border: 2px dashed #ffd24c;
+      padding: 14px;
+      border-radius: 14px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .reset-btn {
+      width: 100%;
+      background: #111;
+      color: #ffd24c;
+      border: none;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .close-x {
+      background: #f4f4f4;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 18px;
+      font-weight: 900;
+      cursor: pointer;
+      position: absolute;
+      left: 18px;
+      top: 18px;
+    }
+
+    .small-note {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 640px) {
+      .top-bar {
+        padding: 12px 14px;
+      }
+
+      .brand-logo {
+        width: 46px;
+        height: 46px;
+      }
+
+      .brand-title {
+        font-size: 20px;
+      }
+
+      .cart-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+
+      .floater {
+        font-size: 13px;
+        padding: 12px 14px;
+      }
+
+      .floater-pay {
+        display: none;
+      }
+
+      .hero-fallback h1 {
+        font-size: 28px;
+      }
+
+      .resto-name {
+        font-size: 16px;
+      }
+
+      .item {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="brand">
+      <img
+        src="logo.png"
+        alt="לוגו רונן משלם"
+        class="brand-logo"
+        onerror="this.style.display='none'; document.getElementById('brandTitle').style.marginTop='0';"
+      />
+      <div class="brand-text">
+        <div class="brand-title" id="brandTitle">רונן משלם</div>
+        <div class="brand-sub">אפליקציית המשלוחים היחידה שבה אתה מזמין ורונן נפרד מהאשראי</div>
+      </div>
+    </div>
+
+    <button class="cart-btn" onclick="openCart()">
+      🛒 עגלה <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+  </div>
+
+  <div class="container">
+    <div class="hero-wrap">
+      <div class="hero-card">
+        <img
+          src="banner.png"
+          alt="באנר רונן משלם"
+          class="hero-banner"
+          id="heroBanner"
+          onerror="this.style.display='none'; document.getElementById('heroFallback').style.display='block';"
+        />
+
+        <div class="hero-fallback" id="heroFallback">
+          <h1>רונן משלם 💸</h1>
+          <p>תזמין מה שבא לך — רונן משלם</p>
+        </div>
+
+        <div class="hero-content">
+          <span class="promo-pill">🔥 מבצע מיוחד</span>
+          <div class="hero-note">
+            ברוך הבא לאפליקציית ההזמנות הכי בעייתית בישראל:
+            אתה בוחר, אתה מזמין, אתה נהנה — <strong>ורונן משלם</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="address">
+      <div class="address-icon">📍</div>
+      <div class="address-text">
+        משלוח אל: <strong>אצל רונן</strong>
+        <div class="address-sub">רחוב הכיס של רונן 1, תל אביב (אין צורך בכתובת אמיתית)</div>
+      </div>
+    </div>
+
+    <div class="banner-strip">
+      🎉 מבצע היום: הזמנה מעל 500 ₪ = רונן עדיין משלם בלי לשאול שאלות 🎉
+    </div>
+
+    <div class="cats">
+      <div class="cat active" onclick="filterCat('all', this)">🍽️ הכל</div>
+      <div class="cat" onclick="filterCat('food', this)">🍕 אוכל</div>
+      <div class="cat" onclick="filterCat('drink', this)">🥂 שתייה</div>
+      <div class="cat" onclick="filterCat('dessert', this)">🍰 קינוחים</div>
+      <div class="cat" onclick="filterCat('lux', this)">💎 יוקרה</div>
+      <div class="cat" onclick="filterCat('weird', this)">🤪 מוזר</div>
+    </div>
+
+    <div class="resto">
+      <div class="resto-header">
+        <div class="resto-emoji">🤑</div>
+        <div class="resto-info">
+          <div class="resto-name">המסעדה של רונן — "תזמין מה שאתה רוצה, אני כבר אסתבך עם זה"</div>
+          <div class="resto-meta">
+            <span class="rating">★ 4.99</span>
+            <span>⏱️ 5 דקות</span>
+            <span>💸 חינם תמיד</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">תפריט מומלץ על חשבון רונן</div>
+      <div id="menu"></div>
+    </div>
+  </div>
+
+  <!-- Floating cart -->
+  <div class="floater disabled" id="floater" onclick="openCart()">
+    <span>🛒 הצג הזמנה (<span id="floaterCount">0</span> פריטים)</span>
+    <span><span class="floater-pay">רונן משלם 💸</span> <span id="floaterTotal">0 ₪</span></span>
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="modal-bg" id="cartModal" onclick="if(event.target===this)closeCart()">
+    <div class="modal">
+      <button class="close-x" onclick="closeCart()">✕</button>
+      <div class="modal-title">🛒 העגלה שלך</div>
+      <div class="modal-sub">רונן ישלים את החיוב, אתה רק תבחר עוד משהו קטן</div>
+      <div id="cartList"></div>
+
+      <div class="summary" id="summary" style="display:none">
+        <div class="sum-row"><span>סכום ביניים:</span><span id="subTotal">0 ₪</span></div>
+        <div class="sum-row"><span>משלוח:</span><span style="color:#00b894;font-weight:800">חינם (רונן)</span></div>
+        <div class="sum-row"><span>שירות:</span><span style="color:#00b894;font-weight:800">חינם (רונן)</span></div>
+        <div class="sum-row"><span>תוספת "עצבנו את רונן":</span><span id="extraFee" style="color:#ff5e3a;font-weight:800">+0 ₪</span></div>
+        <div class="sum-row total"><span>סה"כ לתשלום:</span><span id="grandTotal">0 ₪</span></div>
+      </div>
+
+      <div class="payer">
+        <div class="payer-coin">💸</div>
+        המזמין משלם: <span style="color:#fff">רונן</span> 🫡<br>
+        <span style="font-size:13px;color:#aaa">(בכל פעם. תמיד. ללא תנאי.)</span>
+      </div>
+
+      <button class="checkout-btn" onclick="checkout()">🚀 אשר הזמנה ושלח את רונן לשלם</button>
+      <div class="small-note">אין כאן באמת חיוב — רק הומור איכותי על חשבון רונן</div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal-bg" id="successModal" onclick="if(event.target===this)closeSuccess()">
+    <div class="modal">
+      <button class="close-x" onclick="closeSuccess()">✕</button>
+      <div class="success-emoji">💸🛵😂</div>
+      <div class="success-text">ההזמנה אושרה!</div>
+      <div class="success-sub">רונן קיבל הודעה מלחיצה במיוחד על "חיוב חדש"</div>
+
+      <div class="funny-note">
+        <strong>📩 הודעה לרונן:</strong><br><br>
+        "היי רונן, הזמנתי עליך <span id="finalItems">0</span> פריטים.<br>
+        סך הכול: <span id="finalTotal" style="color:#ff5e3a">0 ₪</span>.<br>
+        הכרטיס שלך כמעט נבהל לבד.<br><br>
+        תודה על הנדיבות 🙏<br>
+        (אל תדאג, זה רק אתר לצחוקים)"
+      </div>
+
+      <button class="reset-btn" onclick="resetAll()">🔄 הזמן שוב על חשבון רונן</button>
+    </div>
+  </div>
+
+  <script>
+    const menu = [
+      { id: 1,  cat: 'food',    emoji: '🍕', name: 'פיצה משפחתית + תוספות גבול',        desc: 'עם אננס, כי לרונן אין כוח להתווכח איתך',             price: 89 },
+      { id: 2,  cat: 'food',    emoji: '🍔', name: 'בורגר מעושן עם צ\'יפס פנקו',        desc: 'מנה שמשדרת "רונן יסתדר"',                            price: 72 },
+      { id: 3,  cat: 'food',    emoji: '🌯', name: 'שווארמה צ\'יקן בלאפה XL',            desc: 'בלאפה שמגיעה עם תחושת אשמה קלה של רונן',            price: 58 },
+      { id: 4,  cat: 'food',    emoji: '🍣', name: 'סושי סט 48 יחידות',                 desc: 'עם סלמון, טונה ותחושת חיוב בלתי נמנעת',              price: 268 },
+      { id: 5,  cat: 'food',    emoji: '🍝', name: 'פסטה עם כמהין שחורים',              desc: 'כי אם כבר מגזימים, אז על חשבון רונן',                price: 184 },
+
+      { id: 6,  cat: 'drink',   emoji: '☕', name: 'לאטה משוגע + עוגיית בראוני',         desc: 'בבוקר רונן משלם, ובצהריים גם',                      price: 32 },
+      { id: 7,  cat: 'drink',   emoji: '🥤', name: 'שייק תות-בננה XL',                   desc: 'ממש בריא. לכיס של רונן פחות',                        price: 28 },
+      { id: 8,  cat: 'drink',   emoji: '🍺', name: 'שישיית בירות',                       desc: 'לערב חברים מפוקפק על הראש של רונן',                  price: 96 },
+      { id: 9,  cat: 'drink',   emoji: '🍾', name: 'שמפניה נוצצת',                       desc: 'כי צריך לחגוג את זה שמישהו אחר משלם',               price: 320 },
+
+      { id: 10, cat: 'dessert', emoji: '🍰', name: 'עוגת שכבות שוקולד מס\' 7',          desc: 'יותר שכבות מהסבלנות של רונן',                        price: 70 },
+      { id: 11, cat: 'dessert', emoji: '🧁', name: 'קופסת קאפקייקס 12 יחידות',          desc: 'אחד לכל תירוץ שרונן ניסה להמציא',                    price: 144 },
+      { id: 12, cat: 'dessert', emoji: '🍦', name: 'גלידת וניל-קרמל פרימיום',           desc: 'קרה, מתוקה ויקרה באופן חשוד',                        price: 38 },
+
+      { id: 13, cat: 'lux',     emoji: '🥩', name: 'סטייק ריב איי 600 גרם',              desc: 'עם יין אדום ודמעה קטנה של רונן',                     price: 420 },
+      { id: 14, cat: 'lux',     emoji: '🍱', name: 'סט סושי פרימיום + סאקה',             desc: 'חבילת VIP למי שממש לא מתבייש',                        price: 580 },
+      { id: 15, cat: 'lux',     emoji: '🦞', name: 'לובסטר טרי עם חמאה',                  desc: 'יש דברים שמרגישים יקרים גם לפני הביס הראשון',       price: 390 },
+
+      { id: 16, cat: 'weird',   emoji: '🤡', name: 'מנה רנדומלית מהמטבח',                desc: 'גם השף לא בטוח מה יצא, אבל רונן משלם',               price: 47 },
+      { id: 17, cat: 'weird',   emoji: '🍳', name: 'חביתת 12 ביצים',                     desc: 'למי שקם רעב במיוחד ועל חשבון מישהו אחר',             price: 64 },
+      { id: 18, cat: 'weird',   emoji: '🍫', name: 'מארז שוקולדים משפחתי',               desc: 'מתנה מושלמת שלא רונן בחר לקנות',                     price: 110 },
+      { id: 19, cat: 'weird',   emoji: '🛵', name: 'משלוח אקסטרה דרמטי באופנוע',        desc: 'רוכב שמביא את האוכל ואת רגשות האשם',                price: 25 },
+      { id: 20, cat: 'weird',   emoji: '🎂', name: 'עוגת יומולדת פתע לרונן',            desc: 'בלי שהוא ביקש, אבל הוא משלם עליה',                  price: 180 }
+    ];
+
+    let cart = {};
+
+    function renderMenu(cat) {
+      const list = cat === 'all' ? menu : menu.filter(item => item.cat === cat);
+
+      document.getElementById('menu').innerHTML = list.map(item => `
+        <div class="item">
+          <div class="item-emoji">${item.emoji}</div>
+          <div class="item-info">
+            <div class="item-name">${item.name}</div>
+            <div class="item-desc">${item.desc}</div>
+            <div class="item-price">${item.price} ₪</div>
+          </div>
+          <div class="qty">
+            <button onclick="addItem(${item.id})">+</button>
+            <button onclick="removeItem(${item.id})" id="m-${item.id}" style="display:none">−</button>
+            <span class="qty-num" id="n-${item.id}" style="display:none">0</span>
+          </div>
+        </div>
+      `).join('');
+
+      Object.keys(cart).forEach(id => updateQtyUI(Number(id)));
+    }
+
+    function addItem(id) {
+      cart[id] = (cart[id] || 0) + 1;
+      updateQtyUI(id);
+      updateTotals();
+    }
+
+    function removeItem(id) {
+      if (!cart[id]) return;
+      cart[id]--;
+      if (cart[id] <= 0) delete cart[id];
+      updateQtyUI(id);
+      updateTotals();
+    }
+
+    function updateQtyUI(id) {
+      const qty = cart[id] || 0;
+      const minusBtn = document.getElementById(`m-${id}`);
+      const numEl = document.getElementById(`n-${id}`);
+
+      if (!minusBtn || !numEl) return;
+
+      minusBtn.style.display = qty > 0 ? 'inline-block' : 'none';
+      numEl.style.display = qty > 0 ? 'inline-block' : 'none';
+      numEl.textContent = qty;
+    }
+
+    function getCartCount() {
+      return Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+    }
+
+    function getSubtotal() {
+      return Object.entries(cart).reduce((sum, [id, qty]) => {
+        const item = menu.find(m => m.id == id);
+        return sum + (item ? item.price * qty : 0);
+      }, 0);
+    }
+
+    function getExtraFee(subtotal) {
+      return Math.round(subtotal * 0.05);
+    }
+
+    function updateTotals() {
+      const count = getCartCount();
+      const subtotal = getSubtotal();
+      const extraFee = getExtraFee(subtotal);
+      const grandTotal = subtotal + extraFee;
+
+      document.getElementById('cartBadge').textContent = count;
+      document.getElementById('floaterCount').textContent = count;
+      document.getElementById('floaterTotal').textContent = grandTotal + ' ₪';
+
+      const floater = document.getElementById('floater');
+      floater.classList.toggle('disabled', count === 0);
+
+      if (document.getElementById('cartModal').classList.contains('show')) {
+        renderCartList();
+      }
+    }
+
+    function filterCat(cat, el) {
+      document.querySelectorAll('.cat').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      renderMenu(cat);
+    }
+
+    function openCart() {
+      if (getCartCount() === 0) return;
+      renderCartList();
+      document.getElementById('cartModal').classList.add('show');
+    }
+
+    function closeCart() {
+      document.getElementById('cartModal').classList.remove('show');
+    }
+
+    function renderCartList() {
+      const entries = Object.entries(cart);
+
+      if (entries.length === 0) {
+        document.getElementById('cartList').innerHTML =
+          '<div style="text-align:center;color:#888;padding:30px 0">🪹 העגלה ריקה. תזמין משהו על רונן!</div>';
+        document.getElementById('summary').style.display = 'none';
+        return;
+      }
+
+      document.getElementById('cartList').innerHTML = entries.map(([id, qty]) => {
+        const item = menu.find(m => m.id == id);
+        return `
+          <div class="cart-row">
+            <div class="cart-emoji">${item.emoji}</div>
+            <div class="cart-info">
+              <div class="cart-name">${item.name}</div>
+              <div class="cart-price">${item.price} ₪ × ${qty}</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <button onclick="removeItem(${id})" style="background:#eee;border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-weight:900">−</button>
+              <span style="font-weight:800;min-width:20px;text-align:center">${qty}</span>
+              <button onclick="addItem(${id})" style="background:#111;color:#ffd24c;border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-weight:900">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const subtotal = getSubtotal();
+      const extraFee = getExtraFee(subtotal);
+      const grandTotal = subtotal + extraFee;
+
+      document.getElementById('summary').style.display = 'block';
+      document.getElementById('subTotal').textContent = subtotal + ' ₪';
+      document.getElementById('extraFee').textContent = '+' + extraFee + ' ₪';
+      document.getElementById('grandTotal').textContent = grandTotal + ' ₪';
+    }
+
+    function checkout() {
+      const count = getCartCount();
+      if (count === 0) return;
+
+      const subtotal = getSubtotal();
+      const extraFee = getExtraFee(subtotal);
+      const grandTotal = subtotal + extraFee;
+
+      document.getElementById('finalItems').textContent = count;
+      document.getElementById('finalTotal').textContent = grandTotal + ' ₪';
+
+      closeCart();
+      document.getElementById('successModal').classList.add('show');
+    }
+
+    function closeSuccess() {
+      document.getElementById('successModal').classList.remove('show');
+    }
+
+    function resetAll() {
+      cart = {};
+      updateTotals();
+      document.querySelectorAll('.cat').forEach(c => c.classList.remove('active'));
+      const firstCat = document.querySelector('.cat');
+      if (firstCat) firstCat.classList.add('active');
+      renderMenu('all');
+      closeSuccess();
+    }
+
+    renderMenu('all');
+    updateTotals();
+  </script>
+</body>
+</html>
